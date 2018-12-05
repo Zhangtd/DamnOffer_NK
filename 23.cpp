@@ -23,7 +23,6 @@ public:
         for(int j=lSeql; j<=lSeqr; j++)
             if(seq[j]>seq[right])
             return false;
-        //cout<<lSeql<<lSeqr<<rSeql<<rSeqr<<endl;
         return judge(lSeql, lSeqr, seq) && judge(rSeql, rSeqr, seq);
     }
 };

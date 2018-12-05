@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<stack>
 using namespace std;
 
 struct treeNode
@@ -62,6 +63,22 @@ public:
      cout<<"This tree has "<<nodeQue.size()<<" nodes."<<endl;
     }
 
+    void DFS(treeNode *root)
+    {
+        stack<treeNode*> nodeStack;
+        nodeStack.push(root);
+        while(!nodeStack.empty())
+        {
+            treeNode* node = nodeStack.top();
+            cout<<node->val<<" ";
+            nodeStack.pop();
+            if(node->right)
+                nodeStack.push(node->right);
+            if(node->left)
+                nodeStack.push(node->left);
+        }
+    }
+
     void preWalk(treeNode *root){
         if(root==NULL)
             return;
@@ -102,7 +119,7 @@ int main()
     }
     treeOp operation;
     treeNode *T = operation.reConstructBinaryTree(pre, vin);
-    operation.BFS(T);
+    operation.DFS(T);
 
     return 0;
 }
