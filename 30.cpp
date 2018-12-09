@@ -6,8 +6,8 @@ class Solution {
 public:
 int FindGreatestSumOfSubArray(vector<int> array) {
         if(array.empty()) return 0;
-        int sum = array[0], tempsum = array[0]; //注意初始值 不能设为0 防止只有负数
-        for(int i = 1; i < array.size(); i++) //从1开始 因为0的情况在初始化时完成了
+        int sum = array[0], tempsum = array[0];
+        for(int i = 1; i < array.size(); i++)
         {
             tempsum = (tempsum < 0) ? array[i] : tempsum + array[i];
             sum = (tempsum > sum) ? tempsum : sum;
