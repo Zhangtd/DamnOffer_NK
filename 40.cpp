@@ -17,11 +17,8 @@ public:
             if(data[i-1]!=data[i] && data[i]!=data[i+1])
                 buff.push_back(data[i]);
 
-        //int i=buff[0], j=buff[1];
-        //*num1 = buff[0];
-        //*num2 = buff[1];
-        cout<<buff.size()<<endl;
-        cout<<buff[0]<<buff[1]<<endl;
+        *num1 = buff[0];
+        *num2 = buff[1];
     }
 };
 int main()
