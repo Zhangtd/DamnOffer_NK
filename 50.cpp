@@ -13,12 +13,12 @@ public:
         map<int, int> dict;
         for(int i=0; i<length; i++)
             dict[numbers[i]] += 1;
-        cout<<dict[2]<<endl;
+        //cout<<dict[2]<<endl;
         for(int i=0; i<length; i++)
             if(dict[numbers[i]]!=1)
             {
                 *duplication = numbers[i];
-                cout<<*duplication<<endl;
+                //cout<<*duplication<<endl;
                 return true;
             }
 
