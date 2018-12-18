@@ -27,8 +27,8 @@ public:
                 addr.push_back(node);
                 node = node->next;
             }
-
         }
+        return NULL;
     }
     bool judge(ListNode* a, vector<ListNode*> address)
     {
