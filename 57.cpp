@@ -19,20 +19,21 @@ public:
     {
         if(pNode==NULL)
             return NULL;
-        if(pNode->next==NULL)
-            return pNode->right;
         if(pNode->right!=NULL)
-            return pNode->right;
-        if(pNode->right==NULL)
         {
-            if(pNode == pNode->next->left)
-                return pNode->next;
-            else if(pNode==pNode->next->right)
-            {
-                pNode->next->right = NULL;
-                return GetNext(pNode->next);
-            }
+            pNode = pNode->right;
+            while(pNode->left!=NULL)
+                pNode = pNode->left;
+            return pNode;
         }
+        while(pNode->next != NULL)
+        {
+            TreeLinkNode *proot = pNode->next;
+            if(proot->left==pNode)
+                return proot;
+            proot = pNode->next;
+        }
+
         return NULL;
     }
 };
