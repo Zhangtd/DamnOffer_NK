@@ -31,9 +31,8 @@ public:
             TreeLinkNode *proot = pNode->next;
             if(proot->left==pNode)
                 return proot;
-            proot = pNode->next;
+            pNode = pNode->next;
         }
-
         return NULL;
     }
 };
