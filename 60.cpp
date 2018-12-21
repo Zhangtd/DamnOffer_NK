@@ -2,6 +2,7 @@
 #include<vector>
 using namespace std;
 
+
 struct TreeNode {
     int val;
     struct TreeNode *left;
@@ -13,7 +14,7 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<vector<int> > Print(TreeNode* pRoot) {
+        vector<vector<int> > Print(TreeNode* pRoot) {
         vector<vector<int>> res;
         if(pRoot==NULL)
             return res;
@@ -22,38 +23,27 @@ public:
         tmp_buff.push_back(pRoot);
         buff.push_back(tmp_buff);
         int level_num = buff.size();
-        cout<<"ready to dive"<<endl;
+        //cout<<"ready to dive"<<endl;
         for(int i=0; i!=level_num; i++)
         {
             vector<TreeNode*> tmp_buff;
             vector<int> tmp_array;
-            for(int j=buff[i].size()-1; j>=0; j--)
+            for(int j=0; j<=buff[i].size()-1; j++)
             {
                 tmp_array.push_back(buff[i][j]->val);
-                if(i%2==0)
-                {
                 if(buff[i][j]->left!=NULL)
                     tmp_buff.push_back(buff[i][j]->left);
                 if(buff[i][j]->right!=NULL)
                     tmp_buff.push_back(buff[i][j]->right);
-                }
-                else{
-                    if(buff[i][j]->right!=NULL)
-                    tmp_buff.push_back(buff[i][j]->right);
-                    if(buff[i][j]->left!=NULL)
-                    tmp_buff.push_back(buff[i][j]->left);
-                }
-
             }
-
             if(!tmp_buff.empty())    buff.push_back(tmp_buff);
             res.push_back(tmp_array);
             level_num =  buff.size();
         }
         return res;
-    }
-};
+        }
 
+};
 void printVec(vector<vector<int> > arr)
 {
     for(int i=0; i!=arr.size(); i++)
